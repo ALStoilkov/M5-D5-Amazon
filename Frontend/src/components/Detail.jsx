@@ -47,12 +47,9 @@ class Detail extends Component {
                                     <div id="price" >{this.state.product.price}</div>
                                 </div>
                             </div>
-
-
                         </div>
-
                     )}
-                    <a href={"/backoffice?id=" + this.state.product._id} className="btn text-center" >Edit this product</a>
+                    <a href={"/backoffice/" + this.state.product._id} className="btn text-center" >Edit this product</a>
                 </div>
             </div>
         </div>
