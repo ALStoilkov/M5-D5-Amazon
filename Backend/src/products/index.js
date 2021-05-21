@@ -3,7 +3,7 @@ import uniqid from "uniqid";
 // import createError from "http-errors";
 // import { validationResult } from "express-validator";
 // import { productsValidation } from "./validation.js";
-import { getProducts, writeProduct } from "../lib/fs-tools.js";
+import { getProducts, writeProducts } from "../lib/fs-tools.js";
 
 const productsRouter = express.Router();
 
