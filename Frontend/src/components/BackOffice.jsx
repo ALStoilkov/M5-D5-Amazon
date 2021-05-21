@@ -17,7 +17,8 @@ class BackOffice extends Component {
       description: "",
       brand: "",
       imageUrl: "",
-      price: ""
+      price: "",
+      category: ""
     }
   };
 
@@ -143,6 +144,20 @@ class BackOffice extends Component {
                 this.setState({ newProduct });
               }}
               value={this.state.newProduct.brand}
+            />
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label>Product Category</Form.Label>
+            <FormControl
+              type="text"
+              placeholder="Category"
+              aria-describedby="basic-addon1"
+              onChange={(e) => {
+                let newProduct = this.state.newProduct;
+                newProduct.category = e.currentTarget.value;
+                this.setState({ newProduct });
+              }}
+              value={this.state.newProduct.category}
             />
           </Form.Group>
           <Form.Group className="my-3">

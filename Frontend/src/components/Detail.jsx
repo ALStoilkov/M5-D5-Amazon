@@ -44,6 +44,12 @@ class Detail extends Component {
                 </div>
                 <div>
                   <div>
+                    <strong>Category:</strong>
+                    <div id="category" >{this.state.product.category}</div>
+                  </div>
+                </div>
+                <div>
+                  <div>
                     <strong>Price:</strong>
                     <div id="price" >{this.state.product.price}</div>
                   </div>
