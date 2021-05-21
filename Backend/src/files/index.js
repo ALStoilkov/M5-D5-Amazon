@@ -1,5 +1,6 @@
 import express from "express";
 import multer from "multer";
+import createError from "http-errors";
 import { readProductPictures, writeProductPictures } from "../lib/fs-tools.js";
 
 // IMAGE UPLOAD (POST /product/:id/upload)
@@ -11,7 +12,11 @@ filesRouter.post(
   async (req, res, next) => {
     try {
       console.log(req.file);
-      writeProductPictures(req.file.originalname, req.file.buffer);
+      if (req.file.buffer) {
+        writeProductPictures(req.file.originalname, req.file.buffer);
+      } else {
+        next(createError(400, "No file attached"));
+      }
       res.send("test");
     } catch (error) {
       console.log(error);
