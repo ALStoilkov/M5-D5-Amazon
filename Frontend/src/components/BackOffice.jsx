@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/BackOffice.css';
+import fetchProduct from '../services/fetchProduct';
+
 import {
   Container,
   Form,
@@ -9,17 +11,25 @@ import {
 
 class BackOffice extends Component {
   state = {
-    selected: false,
+    editing: false,
     newProduct: {
       name: "",
       description: "",
       brand: "",
       imageUrl: "",
       price: ""
-    },
+    }
   };
 
-  submitProduct = async (e) => {
+  componentDidMount = async () => {
+    let idFromTheURL = this.props.match.params.productId.toString()
+    console.log('idFromTheURL:', idFromTheURL)
+    const getProduct = await fetchProduct(idFromTheURL);
+    console.log('getProduct:', getProduct)
+    this.setState({ id: idFromTheURL, editing: true, newProduct: getProduct });
+  }
+
+  submitNewProduct = async (e) => {
     e.preventDefault();
     const endpoint = "https://striveschool-api.herokuapp.com/api/product/";
     const response = await fetch(endpoint, {
@@ -43,14 +53,51 @@ class BackOffice extends Component {
   };
 
 
-
-  handleProductName = (e) => {
-    let newProduct = this.state.newProduct;
-    newProduct.name = e.currentTarget.value;
-    this.setState({ newProduct });
+  submitEdit = async (e) => {
+    e.preventDefault();
+    const endpoint = `https://striveschool-api.herokuapp.com/api/product/${this.state.id}`;
+    const response = await fetch(endpoint, {
+      method: "PUT",
+      body: JSON.stringify(this.state.newProduct),
+      headers: new Headers({
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjE1ODE1MTMsImV4cCI6MTYyMjc5MTExM30.xX1bdh-kAI426pIAHwyGgERUwH-di9UXYWKK1-jFlvY",
+        "Content-Type": "application/json",
+      }),
+    });
+    if (response.ok) {
+      alert("Product edited");
+      this.setState({
+        newProduct: {
+          product: "",
+        },
+      });
+    } else {
+      alert("An error has occurred");
+    }
   };
 
-  componentDidMount() { }
+  submitDelete = async (e) => {
+    e.preventDefault();
+    const endpoint = `https://striveschool-api.herokuapp.com/api/product/${this.state.id}`;
+    const response = await fetch(endpoint, {
+      method: "DELETE",
+      headers: new Headers({
+        Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjE1ODE1MTMsImV4cCI6MTYyMjc5MTExM30.xX1bdh-kAI426pIAHwyGgERUwH-di9UXYWKK1-jFlvY",
+        "Content-Type": "application/json",
+      }),
+    });
+    if (response.ok) {
+      alert("Product deleted");
+      this.setState({
+        newProduct: {
+          product: "",
+        },
+      });
+    } else {
+      alert("An error has occurred");
+    }
+  };
+
   render() {
     return (
       <Container className="my-3">
@@ -63,10 +110,10 @@ class BackOffice extends Component {
               placeholder="Name"
               aria-describedby="basic-addon1"
               onChange={(e) => {
-                  let newProduct = this.state.newProduct;
-                  newProduct.name = e.currentTarget.value;
-                  this.setState({ newProduct });
-                }}
+                let newProduct = this.state.newProduct;
+                newProduct.name = e.currentTarget.value;
+                this.setState({ newProduct });
+              }}
               value={this.state.newProduct.name}
             />
           </Form.Group>
@@ -77,10 +124,10 @@ class BackOffice extends Component {
               placeholder="Description"
               aria-describedby="basic-addon1"
               onChange={(e) => {
-                  let newProduct = this.state.newProduct;
-                  newProduct.description = e.currentTarget.value;
-                  this.setState({ newProduct });
-                }}
+                let newProduct = this.state.newProduct;
+                newProduct.description = e.currentTarget.value;
+                this.setState({ newProduct });
+              }}
               value={this.state.newProduct.description}
             />
           </Form.Group>
@@ -91,10 +138,10 @@ class BackOffice extends Component {
               placeholder="Brand"
               aria-describedby="basic-addon1"
               onChange={(e) => {
-                  let newProduct = this.state.newProduct;
-                  newProduct.brand = e.currentTarget.value;
-                  this.setState({ newProduct });
-                }}
+                let newProduct = this.state.newProduct;
+                newProduct.brand = e.currentTarget.value;
+                this.setState({ newProduct });
+              }}
               value={this.state.newProduct.brand}
             />
           </Form.Group>
@@ -105,10 +152,10 @@ class BackOffice extends Component {
               placeholder="Image URL"
               aria-describedby="basic-addon1"
               onChange={(e) => {
-                  let newProduct = this.state.newProduct;
-                  newProduct.imageUrl = e.currentTarget.value;
-                  this.setState({ newProduct });
-                }}
+                let newProduct = this.state.newProduct;
+                newProduct.imageUrl = e.currentTarget.value;
+                this.setState({ newProduct });
+              }}
               value={this.state.newProduct.imageUrl}
             />
           </Form.Group>
@@ -119,15 +166,22 @@ class BackOffice extends Component {
               placeholder="Price"
               aria-describedby="basic-addon1"
               onChange={(e) => {
-                  let newProduct = this.state.newProduct;
-                  newProduct.price = e.currentTarget.value;
-                  this.setState({ newProduct });
-                }}
+                let newProduct = this.state.newProduct;
+                newProduct.price = e.currentTarget.value;
+                this.setState({ newProduct });
+              }}
               value={this.state.newProduct.price}
             />
           </Form.Group>
-
-          <Button variant="primary" type="submit">Add a new Product</Button>
+          {this.state.editing ?
+            <>
+              <Button variant="primary" onClick={this.submitEdit}>Edit Product</Button>
+              <span> </span>
+              <Button variant="primary" onClick={this.submitDelete}>Delete Product</Button>
+            </>
+            :
+            <Button variant="primary" type="submit" onClick={this.submitNewProduct}>Add a new Product</Button>
+          }
         </Form>
       </Container>
 

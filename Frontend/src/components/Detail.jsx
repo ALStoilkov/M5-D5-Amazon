@@ -18,45 +18,41 @@ class Detail extends Component {
     this.setState({ product: getProduct });
   };
 
-  render() {
-    return (
-      <div className="container">
-        <div className="row">
-          <h1 className="text-center my-3">Products Detail</h1>
-          <div className="col-10 col-md-6 mx-auto">
-            {this.state.product && (
-              <div>
-                <div className="d-flex justify-content-center">
-                  <img
-                    id="imageUrl"
-                    style={{ maxHeight: 200 }}
-                    alt=""
-                    src={this.state.product.imageUrl}
-                  />
-                </div>
-                <div>
-                  <div>
-                    <strong>Name:</strong>
-                  </div>
-                  <p id="name">{this.state.product.name}</p>
-                </div>
-                <div>
-                  <div>
-                    <strong>Description:</strong>
-                  </div>
-                  <p id="description">{this.state.product.description}</p>
-                </div>
-                <div>
-                  <div>
-                    <strong>Brand:</strong>
-                    <p id="brand">{this.state.product.brand}</p>
-                  </div>
-                </div>
-                <div>
-                  <div>
-                    <strong>Price:</strong>
-                    <div id="price">{this.state.product.price}</div>
-                  </div>
+
+    render() {
+        return (<div className="container">
+            <div className="row">
+                <h1 className="text-center my-3">Products Detail</h1>
+                <div className="col-10 col-md-6 mx-auto">
+                    {this.state.product && (
+                        <div>
+                            <div className="d-flex justify-content-center">
+                                <img id="imageUrl" style={{ maxHeight: 200 }} alt="" src={this.state.product.imageUrl} />
+                            </div>
+                            <div>
+                                <div><strong>Name:</strong></div>
+                                <p id="name" >{this.state.product.name}</p>
+                            </div>
+                            <div>
+                                <div><strong>Description:</strong></div>
+                                <p id="description" >{this.state.product.description}</p>
+
+                            </div>
+                            <div>
+                                <div>
+                                    <strong>Brand:</strong>
+                                    <p id="brand" >{this.state.product.brand}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <strong>Price:</strong>
+                                    <div id="price" >{this.state.product.price}</div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                    <a href={"/backoffice/" + this.state.product._id} className="btn text-center" >Edit this product</a>
                 </div>
               </div>
             )}

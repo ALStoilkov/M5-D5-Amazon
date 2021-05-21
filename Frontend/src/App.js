@@ -22,7 +22,8 @@ class App extends React.Component {
         <MyNavbar />
         <Switch>
           <Route path="/" exact> <Home products={this.state.products} /> </Route>
-          <Route path="/backoffice" render={(props) => <BackOffice {...props} />} />
+          <Route path="/backoffice" exact render={(props) => <BackOffice {...props} />} />
+          <Route path="/backoffice/:productId" render={(props) => <BackOffice {...props} />} />
           <Route path="/detail/:productId" exact render={(props) => <Detail {...props} />} />
         </Switch >
       </Router >
