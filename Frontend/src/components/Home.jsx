@@ -21,7 +21,7 @@ class Home extends Component {
                                     <th scope="col">Description</th>
                                     <th scope="col">Brand</th>
                                     <th scope="col">Category</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Price ($)</th>
                                     <th scope="col">Detail</th>
                                 </tr>
                                 {this.props.products.map((item) => (
@@ -39,7 +39,7 @@ class Home extends Component {
                                         <th scope="col">{item.description}</th>
                                         <th scope="col">{item.brand}</th>
                                         <th scope="col">{item.category}</th>
-                                        <th scope="col">{item.price}</th>
+                                        <th scope="col">${item.price}</th>
                                         <th scope="col"><a href={"/detail/" + item._id}>Detail</a></th>
                                     </tr>
                                 ))}
