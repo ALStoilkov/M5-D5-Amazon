@@ -22,11 +22,14 @@ class BackOffice extends Component {
   };
 
   componentDidMount = async () => {
-    let idFromTheURL = this.props.match.params.productId.toString()
-    console.log('idFromTheURL:', idFromTheURL)
-    const getProduct = await fetchProduct(idFromTheURL);
-    console.log('getProduct:', getProduct)
-    this.setState({ id: idFromTheURL, editing: true, newProduct: getProduct });
+    let idFromTheURL = this.props.match.params.productId ? this.props.match.params.productId.toString() : ""
+    if (idFromTheURL) {
+      const getProduct = await fetchProduct(idFromTheURL);
+      this.setState({ editing: true, newProduct: getProduct });
+    } else {
+      const getProduct = await fetchProduct(idFromTheURL);
+      this.setState({ id: idFromTheURL, editing: true, newProduct: getProduct });
+    }
   }
 
   submitNewProduct = async (e) => {
