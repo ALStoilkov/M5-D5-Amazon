@@ -53,7 +53,6 @@ class Detail extends Component {
             <a href={"/backoffice/" + this.state.product._id} className="btn text-center" >Edit this product</a>
           </div>
         </div>
-        <a href={"/backoffice?id=" + this.state.product._id} className="btn text-center" > Edit this product </a>
       </div>
     )
   }

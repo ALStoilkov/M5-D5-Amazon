@@ -25,9 +25,6 @@ class BackOffice extends Component {
     let idFromTheURL = this.props.match.params.productId ? this.props.match.params.productId.toString() : ""
     if (idFromTheURL) {
       const getProduct = await fetchProduct(idFromTheURL);
-      this.setState({ editing: true, newProduct: getProduct });
-    } else {
-      const getProduct = await fetchProduct(idFromTheURL);
       this.setState({ id: idFromTheURL, editing: true, newProduct: getProduct });
     }
   }
@@ -183,7 +180,7 @@ class BackOffice extends Component {
               <Button variant="primary" onClick={this.submitDelete}>Delete Product</Button>
             </>
             :
-            <Button variant="primary" type="submit" onClick={this.submitNewProduct}>Add a new Product</Button>
+            <Button variant="primary" onClick={this.submitNewProduct}>Add a new Product</Button>
           }
         </Form>
       </Container>
