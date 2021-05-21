@@ -1,18 +1,57 @@
 [
   {
-    "name": "mike",
-    "surname": "mikie",
-    "email": "asdflkj@sfj.com",
-    "dateOfBirth": "19/48/51",
-    "_id": "654321",
-    "createdAt": "88888"
+    "name": "3310",
+    "description": "somthing longer",
+    "brand": "nokia",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 100,
+    "category": "smartphones",
+    "_id": "gqcqaeo8koyfov48",
+    "createdAt": "2021-05-21T14:44:22.279Z",
+    "updatedAt": "2021-05-21T14:44:22.279Z"
   },
   {
-    "name": "arvand",
-    "surname": "mikie",
-    "email": "asdflkj@sfj.com",
-    "dateOfBirth": "19/48/51",
-    "_id": "123456",
-    "updatedAt": "2021-05-21T11:08:40.194Z"
+    "name": "sam1245",
+    "description": "somthing longer",
+    "brand": "samsung",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 100,
+    "category": "smartphones",
+    "_id": "gqcqadj4koyfpm3z",
+    "createdAt": "2021-05-21T14:44:57.262Z",
+    "updatedAt": "2021-05-21T14:44:57.262Z"
+  },
+  {
+    "name": "sam5421",
+    "description": "somthing longer",
+    "brand": "samsung",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 100,
+    "category": "smartphones",
+    "_id": "gqcqaclckoyfpzhj",
+    "createdAt": "2021-05-21T14:45:14.598Z",
+    "updatedAt": "2021-05-21T14:45:14.598Z"
+  },
+  {
+    "name": "laptop123",
+    "description": "somthing longer",
+    "brand": "samsung",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 100,
+    "category": "laptop",
+    "_id": "gqcqa8pskoyfqspc",
+    "createdAt": "2021-05-21T14:45:52.463Z",
+    "updatedAt": "2021-05-21T14:45:52.463Z"
+  },
+  {
+    "name": "laptop324569",
+    "description": "somthing longer",
+    "brand": "samsung",
+    "imageUrl": "https://drop.ndtv.com/TECH/product_database/images/2152017124957PM_635_nokia_3310.jpeg?downsize=*:420&output-quality=80",
+    "price": 100,
+    "category": "laptop",
+    "_id": "gqcqa82gkoyfqz2l",
+    "createdAt": "2021-05-21T14:46:00.716Z",
+    "updatedAt": "2021-05-21T14:46:00.716Z"
   }
 ]
