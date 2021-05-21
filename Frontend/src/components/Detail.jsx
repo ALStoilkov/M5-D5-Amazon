@@ -2,20 +2,19 @@ import React, { Component } from "react";
 import fetchProduct from "../services/fetchProduct";
 
 class Detail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      product: {},
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            product: {}
+        }
+    }
 
-  componentDidMount = async () => {
-    let idFromTheURL = this.props.match.params.productId.toString();
-    const getProduct = await fetchProduct(idFromTheURL);
-    console.log("getProduct:", getProduct);
-    this.setState({ product: getProduct });
-  };
-
+    componentDidMount = async () => {
+        let idFromTheURL = this.props.match.params.productId.toString()
+        const getProduct = await fetchProduct(idFromTheURL);
+        console.log('getProduct:', getProduct)
+        this.setState({ product: getProduct });
+    }
 
   render() {
     return (
