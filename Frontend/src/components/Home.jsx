@@ -21,7 +21,7 @@ class Home extends Component {
                                     <th scope="col">Description</th>
                                     <th scope="col">Brand</th>
                                     <th scope="col">Category</th>
-                                    <th scope="col">Price ($)</th>
+                                    <th scope="col">Price</th>
                                     <th scope="col">Detail</th>
                                 </tr>
                                 {this.props.products.map((item) => (
