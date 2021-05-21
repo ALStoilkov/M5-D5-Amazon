@@ -52,16 +52,12 @@ class Detail extends Component {
                         </div>
 
                     )}
-
+                    <a href={"/backoffice?id=" + this.state.product._id} className="btn text-center" >Edit this product</a>
                 </div>
             </div>
         </div>
         );
     }
 }
-// <div className="text-white" key={uniqid()}>
-//     <hr />
-//     {comment.comment}
-//     <div className="text-white">Rate: {comment.rate} </div>
-// </div>
+
 export default Detail;

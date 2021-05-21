@@ -60,8 +60,7 @@ class BackOffice extends Component {
             <Form.Label>Product Name</Form.Label>
             <FormControl
               type="text"
-              placeholder="Write your product"
-              aria-label="product"
+              placeholder="Name"
               aria-describedby="basic-addon1"
               onChange={(e) => {
                   let newProduct = this.state.newProduct;
@@ -75,8 +74,7 @@ class BackOffice extends Component {
             <Form.Label>Product Description</Form.Label>
             <FormControl
               type="text"
-              placeholder="Write your product"
-              aria-label="product"
+              placeholder="Description"
               aria-describedby="basic-addon1"
               onChange={(e) => {
                   let newProduct = this.state.newProduct;
@@ -90,8 +88,7 @@ class BackOffice extends Component {
             <Form.Label>Product Brand</Form.Label>
             <FormControl
               type="text"
-              placeholder="Write your product"
-              aria-label="product"
+              placeholder="Brand"
               aria-describedby="basic-addon1"
               onChange={(e) => {
                   let newProduct = this.state.newProduct;
@@ -105,8 +102,7 @@ class BackOffice extends Component {
             <Form.Label>Product Image URL</Form.Label>
             <FormControl
               type="text"
-              placeholder="Write your product"
-              aria-label="product"
+              placeholder="Image URL"
               aria-describedby="basic-addon1"
               onChange={(e) => {
                   let newProduct = this.state.newProduct;
@@ -119,9 +115,8 @@ class BackOffice extends Component {
           <Form.Group className="my-3">
             <Form.Label>Product Price</Form.Label>
             <FormControl
-              type="text"
-              placeholder="Write your product"
-              aria-label="product"
+              type="number"
+              placeholder="Price"
               aria-describedby="basic-addon1"
               onChange={(e) => {
                   let newProduct = this.state.newProduct;
