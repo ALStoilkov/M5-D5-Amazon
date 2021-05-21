@@ -29,8 +29,8 @@ export const writeReviews = async (content) =>
 export const getCurrentFolderPath = (currentFile) =>
   dirname(fileURLToPath(currentFile));
 
-export const writeProductsPictures = async (fileName, content) =>
+export const writeProductPictures = async (fileName, content) =>
   await writeFile(join(publicImgFolderPath, fileName), content);
 
-export const readProductsPictures = (fileName) =>
+export const readProductPictures = (fileName) =>
   createReadStream(join(publicImgFolderPath, fileName));
