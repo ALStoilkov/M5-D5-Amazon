@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import fetchProduct from "../services/fetchProduct";
+import fetchGetProduct from "../services/fetchGetProduct";
 
 class Detail extends Component {
     constructor(props) {
@@ -11,7 +11,7 @@ class Detail extends Component {
 
     componentDidMount = async () => {
         let idFromTheURL = this.props.match.params.productId.toString()
-        const getProduct = await fetchProduct(idFromTheURL);
+        const getProduct = await fetchGetProduct(idFromTheURL);
         console.log('getProduct:', getProduct)
         this.setState({ product: getProduct });
     }

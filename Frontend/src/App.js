@@ -4,7 +4,7 @@ import MyNavbar from './components/MyNavbar';
 import BackOffice from './components/BackOffice';
 import Home from './components/Home';
 import Detail from './components/Detail';
-import fetchProducts from './services/fetchProducts';
+import fetchGetProducts from './services/fetchGetProducts';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
 
@@ -13,7 +13,7 @@ class App extends React.Component {
     products: [],
   };
   componentDidMount = async () => {
-    const getProducts = await fetchProducts();
+    const getProducts = await fetchGetProducts();
     this.setState({ products: getProducts });
   };
   render() {

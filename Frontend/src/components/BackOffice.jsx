@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/BackOffice.css';
-import fetchProduct from '../services/fetchProduct';
+import fetchGetProduct from '../services/fetchGetProduct';
 
 import {
   Container,
@@ -24,7 +24,7 @@ class BackOffice extends Component {
   componentDidMount = async () => {
     let idFromTheURL = this.props.match.params.productId ? this.props.match.params.productId.toString() : ""
     if (idFromTheURL) {
-      const getProduct = await fetchProduct(idFromTheURL);
+      const getProduct = await fetchGetProduct(idFromTheURL);
       this.setState({ id: idFromTheURL, editing: true, newProduct: getProduct });
     }
   }
