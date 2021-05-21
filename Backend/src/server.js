@@ -5,6 +5,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { table } from "console";
 import filesRouter from "./files/index.js";
+import productsRouter from "./products/index.js";
 
 const server = express();
 const port = 3001;
@@ -21,5 +22,6 @@ server.use(express.json());
 server.use(filesRouter);
 
 table(listEndpoints(server));
+server.use("/products", productsRouter);
 
 server.listen(port, () => console.log(`Server is listening on: ${port}`));
