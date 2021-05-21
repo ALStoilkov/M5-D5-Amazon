@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import { table } from "console";
 import filesRouter from "./files/index.js";
 import productsRouter from "./products/index.js";
+import reviewsRouter from "./reviews/index.js";
 import { errorHandler } from "./errorHandlers.js";
 
 const server = express();
@@ -22,10 +23,11 @@ server.use(express.json());
 
 server.use(filesRouter);
 
-table(listEndpoints(server));
 server.use("/products", productsRouter);
+server.use("/reviews", reviewsRouter);
 
 // error handlers +++++++++++
 server.use(errorHandler);
 
+table(listEndpoints(server));
 server.listen(port, () => console.log(`Server is listening on: ${port}`));
