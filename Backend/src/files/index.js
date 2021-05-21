@@ -6,7 +6,7 @@ import { readProductPictures, writeProductPictures } from "../lib/fs-tools.js";
 const filesRouter = express.Router();
 
 filesRouter.post(
-  "/product/:id/upload",
+  "/:id/upload",
   multer().single("productImg"),
   async (req, res, next) => {
     try {

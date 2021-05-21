@@ -20,10 +20,10 @@ server.use(express.static(publicFolderPath));
 server.use(cors());
 server.use(express.json());
 
-server.use(filesRouter);
+server.use("/product", filesRouter);
+server.use("/products", productsRouter);
 
 table(listEndpoints(server));
-server.use("/products", productsRouter);
 
 // error handlers +++++++++++
 server.use(errorHandler);
