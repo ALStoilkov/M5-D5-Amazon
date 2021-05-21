@@ -10,4 +10,6 @@ server.use(express.json());
 
 server.use("/products", productsRouter);
 
+// error handlers +++++++++++
+
 server.listen(port, () => console.log(`Server is listening on: ${port}`));
