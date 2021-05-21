@@ -24,7 +24,7 @@ class Home extends Component {
                                     <th scope="col">Detail</th>
                                 </tr>
                                 {this.props.products.map((item) => (
-                                    <tr>
+                                    <tr key={item._id}>
                                         <th scope="col">
                                             <img
                                                 className="my-1 userImg"
@@ -38,20 +38,20 @@ class Home extends Component {
                                         <th scope="col">{item.description}</th>
                                         <th scope="col">{item.brand}</th>
                                         <th scope="col">{item.price}</th>
-                                        <th scope="col"><a href={"/detail?"+item._id}>Detail</a></th>
+                                        <th scope="col"><a href={"/detail/" + item._id}>Detail</a></th>
                                     </tr>
                                 ))}
 
                             </thead>
-                        <tbody />
+                            <tbody />
                         </table>
-                    <div className="d-flex justify-content-center my-3">
-                        <div className="d-none spinner-border text-info" role="status" id="LoadingSpinner">
-                            <span className="sr-only">Loading...</span>
+                        <div className="d-flex justify-content-center my-3">
+                            <div className="d-none spinner-border text-info" role="status" id="LoadingSpinner">
+                                <span className="sr-only">Loading...</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
             </div >
 
         );

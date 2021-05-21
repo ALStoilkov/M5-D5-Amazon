@@ -1,83 +1,67 @@
 import React, { Component } from 'react';
+import fetchProduct from '../services/fetchProduct';
 
 class Detail extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            product: {}
+        }
     }
-    componentDidMount() {
-        //     const params = new URLSearchParams(location.search);
-        //   const id = params.get("id");
 
-        //   const endpoint = "https://striveschool-api.herokuapp.com/api/product/";
-
-        //   window.onload = async () => {
-        //     const response = await fetch(endpoint + id, {
-        //       headers: {
-        //         Authorization:
-        //           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDkyYjUyYTAyNTNhYTAwMTU5NjRhNTkiLCJpYXQiOjE2MjE1ODE1MTMsImV4cCI6MTYyMjc5MTExM30.xX1bdh-kAI426pIAHwyGgERUwH-di9UXYWKK1-jFlvY",
-        //       },
-        //     });
-        //     const product = await response.json();
-        //     displayProduct(product);
-        //   };
-
-        //   function displayProduct(product) {
-        //     document.querySelector("#id").innerHTML = product._id;
-        //     document.querySelector("#imageUrl").src = product.imageUrl;
-        //     document.querySelector("#name").innerHTML = product.name;
-        //     document.querySelector("#description").innerHTML = product.description;
-        //     document.querySelector("#brand").innerHTML = product.brand;
-        //     document.querySelector("#price").innerHTML = product.price;
-
-        //     let backofficeLink =
-        //       location.href.replace(/\/[^\/]+?\.[^\/]+?$/, "/") + "backoffice.html";
-
-        //     document.querySelector("#edit").innerHTML = `
-        //             <a class="btn btn-primary mx-auto w-50" href="${backofficeLink}?id=${product._id}">Edit</a>
-        //         `;
-        //   }
+    componentDidMount = async () => {
+        let idFromTheURL = this.props.match.params.productId.toString()
+        const getProduct = await fetchProduct(idFromTheURL);
+        console.log('getProduct:', getProduct)
+        this.setState({ product: getProduct });
     }
+
     render() {
         return (<div className="container">
             <div className="row">
+                <h1 className="text-center my-3">Products Detail</h1>
                 <div className="col-10 col-md-6 mx-auto">
-                    <h1 className="text-center my-3">Products Detail</h1>
-                    <div>
-                        <p className="d-flex justify-content-between">
-                            <strong>ID:</strong>
-                            <span id="id" />
-                        </p>
-                    </div>
-                    <div className="d-flex justify-content-center">
-                        <img id="imageUrl" style={{ maxHeight: 200 }} alt="" />
-                    </div>
-                    <div>
-                        <div><strong>Name:</strong></div>
-                        <p id="name" />
-                    </div>
-                    <div>
-                        <div><strong>Description:</strong></div>
-                        <p id="description" />
-                    </div>
-                    <div>
-                        <p className="d-flex justify-content-between">
-                            <strong>Brand:</strong>
-                            <span id="brand" />
-                        </p>
-                    </div>
-                    <div>
-                        <p className="d-flex justify-content-between">
-                            <strong>Price:</strong>
-                            <span id="price" />
-                        </p>
-                    </div>
-                    <div className="d-flex" id="edit" />
+                    {this.state.product && (
+                        <div>
+                            <div className="d-flex justify-content-center">
+                                <img id="imageUrl" style={{ maxHeight: 200 }} alt="" src={this.state.product.imageUrl} />
+                            </div>
+                            <div>
+                                <div><strong>Name:</strong></div>
+                                <p id="name" >{this.state.product.name}</p>
+                            </div>
+                            <div>
+                                <div><strong>Description:</strong></div>
+                                <p id="description" >{this.state.product.description}</p>
+
+                            </div>
+                            <div>
+                                <div>
+                                    <strong>Brand:</strong>
+                                    <p id="brand" >{this.state.product.brand}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <strong>Price:</strong>
+                                    <div id="price" >{this.state.product.price}</div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    )}
+
                 </div>
             </div>
         </div>
         );
     }
 }
-
+// <div className="text-white" key={uniqid()}>
+//     <hr />
+//     {comment.comment}
+//     <div className="text-white">Rate: {comment.rate} </div>
+// </div>
 export default Detail;

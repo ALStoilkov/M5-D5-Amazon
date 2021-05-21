@@ -1,12 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import MyNavbar from './components/MyNavbar';
 import BackOffice from './components/BackOffice';
-import './App.css';
 import Home from './components/Home';
+import Detail from './components/Detail';
 import fetchProducts from './services/fetchProducts';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
-import { Container } from 'react-bootstrap';
 
 class App extends React.Component {
   state = {
@@ -21,18 +21,11 @@ class App extends React.Component {
       <Router>
         <MyNavbar />
         <Switch>
-          <Container>
-            <Route path="/" exact>
-              <Home products={this.state.products}/>
-            </Route>
-            <Route path="/backoffice" exact>
-              <BackOffice />
-            </Route>
-            <Route path="/detail" exact>
-            </Route>
-          </Container>
-        </Switch>
-      </Router>
+          <Route path="/" exact> <Home products={this.state.products} /> </Route>
+          <Route path="/backoffice" render={(props) => <BackOffice {...props} />} />
+          <Route path="/detail/:productId" exact render={(props) => <Detail {...props} />} />
+        </Switch >
+      </Router >
     );
   }
 }

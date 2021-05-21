@@ -52,7 +52,7 @@ class MyNavbar extends Component {
                                                 </div>
                                                 <span id="searchDropdownDescription" className="nav-progressive-attribute" style={{ display: 'none' }}>Select the department you want to search in</span>
                                                 <select aria-describedby="searchDropdownDescription" className=" nav-search-dropdown searchSelect nav-progressive-attrubute nav-progressive-search-dropdown " data-nav-digest="Xa0GQ+pPQ/tdsV+GmRWeXB8PUD0=" data-nav-selected={0} id="searchDropdownBox" name="url" style={{ display: 'block', top: '2.5px' }} tabIndex={0} title="Search in">
-                                                    <option selected="selected" value="search-alias=aps">
+                                                    <option value="search-alias=aps">
                                                         All Departments
                                                     </option>
                                                     <option value="search-alias=arts-crafts-intl-ship">
