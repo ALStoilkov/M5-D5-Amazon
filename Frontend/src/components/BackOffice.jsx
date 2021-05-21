@@ -31,7 +31,7 @@ class BackOffice extends Component {
 
   submitNewProduct = async (e) => {
     e.preventDefault();
-    const endpoint = "https://striveschool-api.herokuapp.com/api/product/";
+    const endpoint = `http://127.0.0.1:3001/products/`;
     const response = await fetch(endpoint, {
       method: "POST",
       body: JSON.stringify(this.state.newProduct),
@@ -55,7 +55,7 @@ class BackOffice extends Component {
 
   submitEdit = async (e) => {
     e.preventDefault();
-    const endpoint = `https://striveschool-api.herokuapp.com/api/product/${this.state.id}`;
+    const endpoint = `http://127.0.0.1:3001/products/${this.state.id}`;
     const response = await fetch(endpoint, {
       method: "PUT",
       body: JSON.stringify(this.state.newProduct),
@@ -78,7 +78,7 @@ class BackOffice extends Component {
 
   submitDelete = async (e) => {
     e.preventDefault();
-    const endpoint = `https://striveschool-api.herokuapp.com/api/product/${this.state.id}`;
+    const endpoint = `http://127.0.0.1:3001/products/${this.state.id}`;
     const response = await fetch(endpoint, {
       method: "DELETE",
       headers: new Headers({
