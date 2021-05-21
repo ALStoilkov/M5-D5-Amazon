@@ -1,0 +1,26 @@
+
+Welcome to Strive School APIs
+Insert email / password to create an account to use the endpoints
+Mohammadsajedian@gmail.com
+•••••••••••
+Your access token for Token Based Authentication is:
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMGNjMGIxZjBmYjAwMTVkOTE3MDYiLCJpYXQiOjE2MTkwMDQ2MDksImV4cCI6MTYyMDIxNDIwOX0.DGDlgKpWowe1bbzGnpP8h09QTfnZMSrDp93COWwfleU
+
+You can use it in your request setting the header:
+
+fetch("https://striveschool-api.herokuapp.com/api/product/", {
+headers: {
+"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDgwMGNjMGIxZjBmYjAwMTVkOTE3MDYiLCJpYXQiOjE2MTkwMDQ2MDksImV4cCI6MTYyMDIxNDIwOX0.DGDlgKpWowe1bbzGnpP8h09QTfnZMSrDp93COWwfleU"
+}
+}
+
+Copyright 2021 Strive School
+
+Privacy Policy | GDPR
+Impressum
+Blog
+For Companies
+Careers
+Ignite
+BACKED BY
