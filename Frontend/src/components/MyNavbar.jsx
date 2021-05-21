@@ -372,7 +372,7 @@ class MyNavbar extends Component {
                                     <a href="/" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_3" data-csa-c-content-id="nav_cs_registry_1c421982e26d4ec48ca364be68f201b5" data-csa-c-id="lh3pj7-7mbvpd-byr211-ckczpj">Registry</a>
                                     <a href="/" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_4" data-csa-c-content-id="nav_cs_sell_9321d964d1ab428b8d83e204c043fc01" data-csa-c-id="eiefff-vm999p-we1zkz-h3l1u5">Sell</a>
                                     {/* <a href="/" aria-label="Click to call our Disability Customer Support line, or reach us directly at 1-888-283-1678" className="nav-hidden-aria" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_5" data-csa-c-id="j6aciv-pdkpqf-5ho0m3-4advd5">Disability Customer Support</a> */}
-                                    <a href="/" className="nav-a">Back Office</a>
+                                    <a href="/backoffice" className="nav-a">Back Office</a>
                                 </div>
                             </div>
                         </div>
