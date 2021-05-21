@@ -44,6 +44,20 @@ productsRouter.get("/:id", async (req, res, next) => {
   }
 });
 
+productsRouter.get("/:id/reviews", async (req, res, next) => {
+  try {
+    const reviews = await getReviews();
+
+    const productReviews = reviews.filter(
+      (elem) => elem.productId === req.params.id
+    );
+
+    res.send(productReviews);
+  } catch (error) {
+    next(error);
+  }
+});
+
 productsRouter.post("/", productsValidation, async (req, res, next) => {
   try {
     const errors = validationResult(req);

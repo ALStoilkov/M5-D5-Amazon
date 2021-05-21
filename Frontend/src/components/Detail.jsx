@@ -1,20 +1,23 @@
-import React, { Component } from 'react';
-import fetchProduct from '../services/fetchProduct';
+import { Button } from "bootstrap";
+import React, { Component } from "react";
+import fetchProduct from "../services/fetchProduct";
+import UploadImgModal from "./UploadImgModal";
 
 class Detail extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            product: {}
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      product: {},
+    };
+  }
 
-    componentDidMount = async () => {
-        let idFromTheURL = this.props.match.params.productId.toString()
-        const getProduct = await fetchProduct(idFromTheURL);
-        console.log('getProduct:', getProduct)
-        this.setState({ product: getProduct });
-    }
+  componentDidMount = async () => {
+    let idFromTheURL = this.props.match.params.productId.toString();
+    const getProduct = await fetchProduct(idFromTheURL);
+    console.log("getProduct:", getProduct);
+    this.setState({ product: getProduct });
+  };
+
 
     render() {
         return (<div className="container">
@@ -51,10 +54,20 @@ class Detail extends Component {
                     )}
                     <a href={"/backoffice/" + this.state.product._id} className="btn text-center" >Edit this product</a>
                 </div>
-            </div>
+              </div>
+            )}
+            <a
+              href={"/backoffice?id=" + this.state.product._id}
+              className="btn text-center"
+            >
+              Edit this product
+            </a>
+            <UploadImgModal {...this.props} />
+          </div>
         </div>
-        );
-    }
+      </div>
+    );
+  }
 }
 
 export default Detail;
