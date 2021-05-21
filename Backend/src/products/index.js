@@ -30,8 +30,8 @@ productsRouter.get("/", async (req, res, next) => {
 
 productsRouter.get("/:id", async (req, res, next) => {
   try {
-    const products = getProducts();
-    const product = products.find((elem) => elem._id === req.params._id);
+    const products = await getProducts();
+    const product = products.find((elem) => elem._id === req.params.id);
     if (product) {
       res.send(product);
     } else {
