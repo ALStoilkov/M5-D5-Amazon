@@ -11,16 +11,18 @@ filesRouter.post(
   multer().single("productImg"),
   async (req, res, next) => {
     try {
-      console.log(req.file);
+      // console.log(req.params.id);
+      console.log(req);
       if (req.file.buffer) {
-        writeProductPictures(req.file.originalname, req.file.buffer);
+        writeProductPictures(req.params.id + ".jpg", req.file.buffer);
       } else {
         next(createError(400, "No file attached"));
       }
-      res.send("test");
+      res.status(201).send("Image saved");
     } catch (error) {
       console.log(error);
     }
   }
 );
+
 export default filesRouter;
