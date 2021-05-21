@@ -1,11 +1,12 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import BackOffice from './components/BackOffice';
+// import BackOffice from './components/BackOffice';
+import MyNavbar from './components/MyNavbar';
 
 function App() {
   return (
-    <div className="App">
-      <BackOffice />
+    <div>
+      <MyNavbar />
+      {/* <BackOffice /> */}
     </div>
   );
 }
