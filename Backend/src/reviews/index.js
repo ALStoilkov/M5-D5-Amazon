@@ -10,19 +10,7 @@ const reviewsRouter = express.Router();
 reviewsRouter.get("/", async (req, res, next) => {
   try {
     const reviews = await getReviews();
-    if (req.query.category) {
-      const filteredReviews = reviews.filter(
-        (elem) => elem.category === req.query.category
-      );
-
-      if (filteredReviews.length > 0) {
-        res.send(filteredReviews);
-      } else {
-        next(createError(404, `no Review found in ${req.query.category}!`));
-      }
-    } else {
-      res.send(reviews);
-    }
+    res.send(reviews);
   } catch (error) {
     next(error);
   }
