@@ -8,12 +8,12 @@ class MyNavbar extends Component {
     }
     render() {
         return (
-            <div id="navbar-main" className=" nav-opt-sprite nav-flex nav-locale-us nav-lang-en nav-ssl nav-unrec nav-progressive-attribute ">
+            <div id="navbar-main" className=" nav-opt-sprite nav-flex nav-locale-us nav-lang-en nav-ssl nav-unrec nav-progressive-attribute">
                 <div id="navbar" cel_widget_id="Navigation-desktop-navbar" data-template="layoutSwapToolBar" role="navigation" className=" nav-sprite-v1 celwidget nav-bluebeacon nav-a11y-t1 bold-focus-hover layout2 nav-flex layout3 layout3-alt nav-packard-glow hamburger nav-progressive-attribute using-mouse " data-csa-c-id="3tceag-e4gqsb-wx876z-61y3s5">
                     <div id="nav-belt">
                         <div className="nav-left">
                             <div id="nav-logo">
-                                <a href="/ref=nav_logo" id="nav-logo-sprites" className="nav-logo-link nav-progressive-attribute" aria-label="Amazon">
+                                <a href="/" id="nav-logo-sprites" className="nav-logo-link nav-progressive-attribute" aria-label="Amazon">
                                     <span className="nav-sprite nav-logo-base" />
                                     <span id="logo-ext" className="nav-sprite nav-logo-ext nav-progressive-content" />
                                     <span className="nav-logo-locale">.us</span>
@@ -366,12 +366,13 @@ class MyNavbar extends Component {
                             <div id="nav-shop" />
                             <div id="nav-xshop-container">
                                 <div id="nav-xshop" className="nav-progressive-content">
-                                    <a href="/international-sales-offers/b/?ie=UTF8&node=15529609011&ref_=nav_cs_gb_intl_52df97a2eee74206a8343034e85cd058" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_0" data-csa-c-content-id="nav_cs_gb_intl_52df97a2eee74206a8343034e85cd058" data-csa-c-id="o47ckv-7dx0ba-av8qwb-tlu6vl">Today's Deals</a>
-                                    <a href="/gp/help/customer/display.html?nodeId=508510&ref_=nav_cs_customerservice_2bf4fe8c5ec54e6bae2d1c24043f012b" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_1" data-csa-c-content-id="nav_cs_customerservice_2bf4fe8c5ec54e6bae2d1c24043f012b" data-csa-c-id="nzuxft-vw3iat-fufrr0-y7zl2a">Customer Service</a>
-                                    <a href="/gift-cards/b/?ie=UTF8&node=2238192011&ref_=nav_cs_gc_4fb606b1a14b44e4823e00c03fc71f47" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_2" data-csa-c-content-id="nav_cs_gc_4fb606b1a14b44e4823e00c03fc71f47" data-csa-c-id="4k6c2u-xd8iso-1ijm56-f288yy">Gift Cards</a>
-                                    <a href="/gp/browse.html?node=16115931011&ref_=nav_cs_registry_1c421982e26d4ec48ca364be68f201b5" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_3" data-csa-c-content-id="nav_cs_registry_1c421982e26d4ec48ca364be68f201b5" data-csa-c-id="lh3pj7-7mbvpd-byr211-ckczpj">Registry</a>
-                                    <a href="/b/?_encoding=UTF8&ld=AZUSSOA-sell&node=12766669011&ref_=nav_cs_sell_9321d964d1ab428b8d83e204c043fc01" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_4" data-csa-c-content-id="nav_cs_sell_9321d964d1ab428b8d83e204c043fc01" data-csa-c-id="eiefff-vm999p-we1zkz-h3l1u5">Sell</a>
-                                    <a href="/gp/help/customer/accessibility" aria-label="Click to call our Disability Customer Support line, or reach us directly at 1-888-283-1678" className="nav-hidden-aria" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_5" data-csa-c-id="j6aciv-pdkpqf-5ho0m3-4advd5">Disability Customer Support</a>
+                                    <a href="/" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_0" data-csa-c-content-id="nav_cs_gb_intl_52df97a2eee74206a8343034e85cd058" data-csa-c-id="o47ckv-7dx0ba-av8qwb-tlu6vl">Today's Deals</a>
+                                    <a href="/" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_1" data-csa-c-content-id="nav_cs_customerservice_2bf4fe8c5ec54e6bae2d1c24043f012b" data-csa-c-id="nzuxft-vw3iat-fufrr0-y7zl2a">Customer Service</a>
+                                    <a href="/" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_2" data-csa-c-content-id="nav_cs_gc_4fb606b1a14b44e4823e00c03fc71f47" data-csa-c-id="4k6c2u-xd8iso-1ijm56-f288yy">Gift Cards</a>
+                                    <a href="/" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_3" data-csa-c-content-id="nav_cs_registry_1c421982e26d4ec48ca364be68f201b5" data-csa-c-id="lh3pj7-7mbvpd-byr211-ckczpj">Registry</a>
+                                    <a href="/" className="nav-a" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_4" data-csa-c-content-id="nav_cs_sell_9321d964d1ab428b8d83e204c043fc01" data-csa-c-id="eiefff-vm999p-we1zkz-h3l1u5">Sell</a>
+                                    {/* <a href="/" aria-label="Click to call our Disability Customer Support line, or reach us directly at 1-888-283-1678" className="nav-hidden-aria" tabIndex={0} data-csa-c-type="link" data-csa-c-slot-id="nav_cs_5" data-csa-c-id="j6aciv-pdkpqf-5ho0m3-4advd5">Disability Customer Support</a> */}
+                                    <a href="/" className="nav-a">Back Office</a>
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,65 @@
+button,
+input,
+select,
+textarea {
+  font-family: "Amazon Ember", Arial, sans-serif;
+}
+.amazon-button {
+  background: #e7e9ec;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0;
+  text-align: center;
+  text-decoration: none !important;
+  vertical-align: middle;
+}
+.amazon-button-primary {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #f0c14b;
+  border-width: 1px;
+  border-radius: 3px;
+  border-color: #a88734 #9c7e31 #846a29;
+
+}
+.amazon-button-text {
+  color: #111;
+  width: 100%;
+  height: 100%;
+  display: block;
+  font-size: 13px;
+  line-height: 29px;
+  margin: 0;
+  outline: 0;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  white-space: nowrap;
+  margin: 5px;
+}
+.amazon-text-center {
+  text-align: center !important;
+}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+button,
+input {
+  line-height: normal;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+  font-size: 100%;
+  vertical-align: middle;
+}
+

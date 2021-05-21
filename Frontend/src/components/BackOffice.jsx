@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-
+import '../styles/BackOffice.css';
 
 class BackOffice extends Component {
   constructor(props) {
     super(props);
     this.state = {}
   }
-  componentDidMount() {
 
+  componentDidMount() {
     // ***************** SET URL OF PAGES *****************
     // const setURLofPages = () => {
     //   let hrefWithoutFileName = location.href.replace(
@@ -152,18 +152,6 @@ class BackOffice extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <a className="navbar-brand" href="/">Amazon</a>
-          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
-              <a className="nav-link" href id="home-link">Home</a>
-              <a className="nav-link active" href="/">Back Office<span className="sr-only">(current)</span></a>
-            </div>
-          </div>
-        </nav>
         <div className="container">
           <div className="row">
             <div className="col-10 col-md-6 mx-auto">
@@ -184,16 +172,17 @@ class BackOffice extends Component {
                 {/*Product Price*/}
                 <label>Product Price</label>
                 <input type="number" className="form-control" id="price" placeholder={0.00} required name="price" min={0} defaultValue={0} step="0.01" title="Currency" pattern="^\d+(?:\.\d{1,2})?$" />
-                <div className="d-flex justify-content-around mb-4">
-                  <button type="submit" className="btn btn-primary w-50" id="addNewProductBtn">
+                <div className="d-flex justify-content-around my-3">
+                  <button type="submit" className=".amazon-button amazon-button-primary amazon-button-text amazon-text-center" id="addNewProductBtn">
                     Add a new Product
             </button>
-                  <button type="button" className="btn btn-primary" id="editBtn" style={{ width: 100 }} onclick="editFx()">
+                  <button type="button" className=".amazon-button amazon-button-primary amazon-button-text amazon-text-center" id="editBtn" style={{ width: 100 }} onclick="editFx()">
                     Save (Edit)
             </button>
-                  <button type="button" className="btn btn-primary" id="deleteBtn" style={{ width: 100 }} onclick="deleteFx()">
+                  <button type="button" className=".amazon-button amazon-button-primary amazon-button-text amazon-text-center" id="deleteBtn" style={{ width: 100 }} onclick="deleteFx()">
                     Delete
             </button>
+                  
                 </div>
               </form>
             </div>
