@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { Modal, Button } from "react-bootstrap";
 
-class ProfilePicModal extends Component {
+class UploadImgModal extends Component {
   state = {
     picture: "",
   };
@@ -64,4 +64,4 @@ class ProfilePicModal extends Component {
   }
 }
 
-export default ProfilePicModal;
+export default UploadImgModal;
