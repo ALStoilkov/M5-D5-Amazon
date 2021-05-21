@@ -1,8 +1,8 @@
 import express from "express";
 import uniqid from "uniqid";
 import createError from "http-errors";
-// import { validationResult } from "express-validator";
-// import { productsValidation } from "./validation.js";
+import { validationResult } from "express-validator";
+import { productsValidation } from "./validation.js";
 import { getProducts, writeProducts } from "../lib/fs-tools.js";
 
 const productsRouter = express.Router();
@@ -44,83 +44,70 @@ productsRouter.get("/:id", async (req, res, next) => {
   }
 });
 
-// productsRouter.post("/", productsValidation, async (req, res, next) => {
-//   try {
-//     const errors = validationResult(req);
-//     if (errors.isEmpty()) {
-//       const newProduct = {
-//         ...req.body,
-//         _id: uniqid(),
-//         createdAt: new Date(),
-//         updatedAt: new Date(),
-//       };
-//       const products = await getProducts();
-//       products.push(newProduct);
-//       await writeProducts(products);
+productsRouter.post("/", productsValidation, async (req, res, next) => {
+  try {
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+      const newProduct = {
+        ...req.body,
+        _id: uniqid(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
+      const products = await getProducts();
+      products.push(newProduct);
+      await writeProducts(products);
 
-//       res.status(201).send({ _id: newProduct._id });
-//     } else {
-//       next(createError(400, { errorList: errors }));
-//     }
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+      res.status(201).send({ _id: newProduct._id });
+    } else {
+      next(createError(400, { errorList: errors }));
+    }
+  } catch (error) {
+    next(error);
+  }
+});
 
-// productsRouter.put("/:id", productsValidation, async (req, res, next) => {
-//   try {
-//     const products = getProducts();
-
-//     const errors = validationResult(req);
-
-//     if (errors.isEmpty()) {
-//       const remainingProduct = products.filter(
-//         (elem) => elem._id !== req.params._id
-//       );
-//       const oldProduct = products.filter((elem) => elem._id === req.params._id);
-//       const updatedProduct = {
-//         ...req.body,
-//         _id: req.params._id,
-//         createdAt: oldProduct.createdAt,
-//         updatedAt: new Date(),
-//       };
-//       remainingProduct.push(updatedProduct);
-//       res.send(
-//         `the product with id of ${req.params._id} was updated successfully`
-//       );
-//     } else {
-//       next(createError(400, { errorList: errors }));
-//     }
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
-productsRouter.put("/:id", async (req, res, next) => {
+productsRouter.put("/:id", productsValidation, async (req, res, next) => {
   try {
     const products = await getProducts();
-    // console.log;
+    const errors = validationResult(req);
 
-    //   if (errors.isEmpty()) {
-    const remainingProduct = products.filter(
-      (elem) => elem._id !== req.params._id
-    );
-    const oldProduct = products.filter((elem) => elem._id === req.params._id);
-    const updatedProduct = {
-      ...req.body,
-      _id: req.params._id,
-      createdAt: oldProduct.createdAt,
-      updatedAt: new Date(),
-    };
-    remainingProduct.push(updatedProduct);
-    res.send(
-      `the product with id of ${req.params._id} was updated successfully`
-    );
-    //   } else {
-    // next(createError(400, { errorList: errors }));
-    //   }
+    if (errors.isEmpty()) {
+      const remainingProduct = products.filter(
+        (elem) => elem._id !== req.params.id
+      );
+      const oldProduct = products.filter((elem) => elem._id === req.params.id);
+      const updatedProduct = {
+        ...req.body,
+        _id: req.params.id,
+        createdAt: oldProduct.createdAt,
+        updatedAt: new Date(),
+      };
+
+      remainingProduct.push(updatedProduct);
+      await writeProducts(remainingProduct);
+
+      res.send(
+        `the product with id of ${req.params.id} was updated successfully`
+      );
+    } else {
+      next(createError(400, { errorList: errors }));
+    }
   } catch (error) {
-    // next(error);
+    next(error);
+  }
+});
+
+productsRouter.delete("/:id", async (req, res, next) => {
+  try {
+    const products = await getProducts();
+    const remainingProduct = products.filter(
+      (elem) => elem._id !== req.params.id
+    );
+    await writeProducts(remainingProduct);
+    res.status(204).send("deleted successfully");
+  } catch (error) {
+    next(error);
   }
 });
 
